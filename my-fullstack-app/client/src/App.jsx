@@ -20,7 +20,7 @@ import ClickExample from './pages/ClickExample';
 import ChangeExample1 from './pages/ChangeExample1';
 import ChangeExample2 from './pages/ChangeExample2';
 import OnClickExample from './pages/OnClickExample';
-import Register from './pages/Register';
+import Register2 from './pages/Register2';
 
 import './css/new.css';
 import './css/main.css';
@@ -29,6 +29,7 @@ import './css/join.css';
 import './css/map.css';
 import './css/aside.css';
 import './css/footer.css'; // footer.css 임포트 추가
+import './css/Register2.css'; // register2.css 임포트 추가
 
 function App() {
     return (
@@ -49,10 +50,9 @@ function App() {
                 <Route path="/SoftwareView_1" element={<SoftwareViewOne />} />
                 <Route path="/TestuseEffect" element={<TestuseEffect />} />
                 <Route path="/ClickExample" element={<ClickExample />} />
-                <Route path="/ChangeExample1" element={<ChangeExample1 />} />
-                <Route path="/ChangeExample2" element={<ChangeExample2 />} />
+                <Route path="/ChangeExample1" element={<ChangeExample1 />} />                <Route path="/ChangeExample2" element={<ChangeExample2 />} />
                 <Route path="/OnClickExample" element={<OnClickExample />} />
-                <Route path="/Register" element={<Register />} />
+                <Route path="/Register2" element={<Register2 />} />
             </Routes>
 
             <Footer name="HANJUN" />

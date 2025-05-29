@@ -106,11 +106,10 @@ const Header = () => {
                         <li className="menulist"><Link to={'/'} className="header-link">회사 소개</Link></li>
                         <li className="menulist"><Link to={'/AdminResearchProject'} className="header-link">사회공헌</Link></li>
                         <li className="menulist"><Link to={'/'} className="header-link">홍보센터</Link></li>
-                        <li className="menulist"><Link to={'/SoftwareList'} className="header-link">자료실</Link></li>
-                        <li className="menulist"><Link to={'/Map'} className="header-link">오시는길</Link></li>
+                        <li className="menulist"><Link to={'/SoftwareList'} className="header-link">자료실</Link></li>                        <li className="menulist"><Link to={'/Map'} className="header-link">오시는길</Link></li>
                         {!isLoggedIn && (
                             <>
-                                <li className="menulist"><Link to={'/Register'} className="header-link">회원가입</Link></li>
+                                <li className="menulist"><Link to={'/Register2'} className="header-link">회원가입</Link></li>
                                 <li className="menulist"><Link to={'/LoginForm'} className="header-link">로그인</Link></li>
                             </>
                         )}
