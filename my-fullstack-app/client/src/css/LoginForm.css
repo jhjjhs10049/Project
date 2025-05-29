@@ -19,92 +19,212 @@
 }
 
 .login-container {
-    width: 100%;
+    background-color: #000000;
+    min-height: 100vh;
+    padding: 50px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-/* 입력 필드 공통 컨테이너 */
-.input-container {
+/* 폼 외부 헤더 */
+.login-outer-header {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+    max-width: 700px;
+    /* 600px에서 700px로 증가 */
+    text-align: center;
+    margin-bottom: 25px;
+    /* 더 큰 여백 */
 }
 
-.input-container label {
-    font-size: 16px;
+.login-outer-header h2 {
+    font-size: 32px;
+    /* 28px에서 32px로 증가 */
+    margin: 0;
+    font-weight: 600;
+    color: white;
+}
+
+/* 로그인 폼 박스 */
+.login-form-box {
+    width: 100%;
+    max-width: 700px;
+    /* 600px에서 700px로 증가 */
+    background-color: #d2cdd3;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* 폼 내용 */
+.login-form-content {
+    padding: 70px 60px;
+    /* 패딩 증가 */
+}
+
+/* 폼 그룹 */
+.login-form-group {
+    margin-bottom: 25px;
+}
+
+.login-form-group label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 8px;
+    font-size: 16px;
 }
 
-/* 로그인 입력 필드 스타일 */
+/* 입력 필드 */
 .login-input {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
     width: 100%;
-    height: 45px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
 }
 
 .login-input:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
     outline: none;
-    border-color: #4a6ee0;
-    box-shadow: 0 0 0 2px rgba(74, 110, 224, 0.2);
 }
 
-/* 링크 컨테이너 수정 - 로그인 버튼 아래로 이동 */
-.links-container {
+/* 도움말 텍스트 */
+.login-help-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+    text-align: right;
+}
+
+/* 로그인 버튼 */
+.login-submit-btn {
+    background-color: #9270D7;
+    /* 검은색에서 보라색으로 변경 */
+    color: white;
+    border: none;
+    padding: 18px 0;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(146, 112, 215, 0.3);
+    /* 그림자 효과 추가 */
+}
+
+.login-submit-btn:hover {
+    background-color: #8360c7;
+    /* 호버 시 약간 어두운 보라색 */
+    color: white;
+    transform: translateY(-2px);
+    /* 호버 시 살짝 위로 */
+    box-shadow: 0 6px 10px rgba(146, 112, 215, 0.4);
+    /* 그림자 증가 */
+}
+
+.login-submit-btn:active {
+    transform: translateY(1px);
+    /* 클릭 시 살짝 아래로 */
+    box-shadow: 0 2px 4px rgba(146, 112, 215, 0.4);
+    /* 그림자 감소 */
+    background-color: #7550b7;
+    /* 클릭 시 더 어두운 보라색 */
+}
+
+/* 로그인 옵션 (아이디 변경, 비밀번호 변경) */
+.login-options {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 20px 0 0 0;
+    align-items: center;
+    margin-top: 15px;
 }
 
-.register-link,
-.reset-link {
-    color: #4a6ee0;
-    text-decoration: none;
+.login-option-btn {
+    background: none;
+    border: none;
+    color: #666;
     font-size: 14px;
-    font-weight: 500;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
 }
 
-.register-link:hover,
-.reset-link:hover {
+.login-option-btn:hover {
+    color: #9270D7;
     text-decoration: underline;
 }
 
-/* 로그인 버튼 - 마진 상단 증가로 위치 내리기 */
-.login-button {
-    padding: 12px;
-    background-color: #4a6ee0;
+.login-divider {
+    margin: 0 10px;
+    color: #666;
+}
+
+/* 회원가입 링크 영역 */
+.login-register-link {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-register-link p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 16px;
+    /* 16px에서 18px로 증가 */
+}
+
+.login-register-btn {
+    background-color: #9270D7;
+    /* 검은색에서 보라색으로 변경 */
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 18px 0;
+    border-radius: 8px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
-    height: 50px;
-    margin-top: 30px;
-    margin-bottom: 0;
-    transition: background-color 0.2s;
+    width: 100%;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(146, 112, 215, 0.3);
+    /* 그림자 효과 추가 */
 }
 
-.login-button:hover {
-    background-color: #3a5bbb;
+.login-register-btn:hover {
+    background-color: #8360c7;
+    /* 호버 시 약간 어두운 보라색 */
+    color: white;
+    transform: translateY(-2px);
+    /* 호버 시 살짝 위로 */
+    box-shadow: 0 6px 10px rgba(146, 112, 215, 0.4);
+    /* 그림자 증가 */
 }
 
-/* 페이지 제목 스타일 */
-.s_tit1 {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+.login-register-btn:active {
+    transform: translateY(1px);
+    /* 클릭 시 살짝 아래로 */
+    box-shadow: 0 2px 4px rgba(146, 112, 215, 0.4);
+    /* 그림자 감소 */
+    background-color: #7550b7;
+    /* 클릭 시 더 어두운 보라색 */
+}
+
+/* SweetAlert 커스텀 스타일 */
+.swal2-icon.swal2-warning {
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
 }
 
 /* 반응형 설정 */
@@ -115,5 +235,14 @@
 
     .login-input {
         height: 40px;
+    }
+
+    .login-form-box {
+        max-width: 90%;
+        margin: 0 20px;
+    }
+
+    .login-form-content {
+        padding: 30px 20px;
     }
 }

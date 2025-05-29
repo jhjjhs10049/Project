@@ -1,126 +1,176 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import cookie from 'react-cookies';
-import '../css/LoginForm.css'; // 새로운 CSS 파일 임포트
+import { useNavigate } from 'react-router-dom';
+import '../css/LoginForm.css'; // 파일 이름의 대소문자 수정
 
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    // 컴포넌트가 마운트되면 페이지 상단으로 스크롤
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const [form, setForm] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    };
 
     const sweetalert = (title, contents, icon, confirmButtonText) => {
         Swal.fire({
             title,
             text: contents,
             icon,
-            confirmButtonText
+            confirmButtonText,
+            iconColor: icon === 'warning' ? '#ff0000' : undefined
         });
     };
 
-    const submitClick = async () => {
-        if (email.trim() === '' || password.trim() === '') {
-            sweetalert('이메일과 비밀번호를 입력해주세요.', '', 'info', '닫기');
-            return;
+    const validateForm = () => {
+        if (!form.email.trim()) {
+            sweetalert('이메일을 입력해주세요.', '', 'warning', '닫기');
+            return false;
         }
 
+        if (!form.email.includes('@')) {
+            sweetalert('유효한 이메일 형식이 아닙니다.', '이메일에는 @가 포함되어야 합니다.', 'warning', '닫기');
+            return false;
+        }
+
+        if (!form.password.trim()) {
+            sweetalert('비밀번호를 입력해주세요.', '', 'warning', '닫기');
+            return false;
+        }
+
+        return true;
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
         try {
-            const loginRes = await fetch('http://localhost:5000/api/LoginForm?type=signin', {
+            const emailParts = form.email.split('@');
+            const email1 = emailParts[0] || '';
+            const email2 = emailParts.length > 1 ? emailParts[1] : '';
+
+            const response = await fetch('http://localhost:5000/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ is_Email: email, is_Password: password })
+                body: JSON.stringify({
+                    is_Email1: email1,
+                    is_Email2: email2,
+                    is_Password: form.password
+                }),
             });
 
-            const user = await loginRes.json();
-            var useremail = user.useremail;
-            var username = user.username;
-            var userpassword = user.userpassword;
-            if (user?.useremail) {
-                console.log("LoginForm useremail=" + user.useremail);
-                console.log("LoginForm username=" + user.username);
-                sweetalert('로그인 되었습니다.', user.username + '님 환영합니다', 'info', '닫기');
+            const data = await response.json();
 
-                const expires = new Date();
-                expires.setMinutes(expires.getMinutes() + 60);
-                cookie.save('useremail', useremail, { path: '/', expires });
-                cookie.save('username', username, { path: '/', expires });
-                cookie.save('userpassword', userpassword, { path: '/', expires });
-
-                setTimeout(() => {
-                    navigate('/');
-                    window.location.reload(); // 강제 새로고침
-                }, 1000);
+            if (data.success) {
+                // 로그인 성공 처리
+                localStorage.setItem('userInfo', JSON.stringify(data.user));
+                sweetalert('로그인 성공', '', 'success', '확인');
+                navigate('/'); // 메인 페이지로 이동
             } else {
-                sweetalert('이메일과 비밀번호를 확인해주세요.', '에러', 'info', '닫기');
+                // 로그인 실패 처리
+                sweetalert('로그인 실패', '이메일 또는 비밀번호가 일치하지 않습니다.', 'warning', '닫기');
             }
-        } catch (error) {
-            sweetalert('이메일과 비밀번호를 확인해주세요.', error, 'info', '닫기');
+        } catch (err) {
+            sweetalert('작업중 오류가 발생하였습니다.', err.message, 'error', '닫기');
+            console.log(err.message);
         }
     };
 
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault(); // 기본 폼 제출 방지
-            submitClick();
-        }
+    const handleRegister = () => {
+        navigate('/Register2');
     };
 
     return (
-        <div>
-            <section className="sub_wrap">
-                <article className="s_cnt re_1 ct1">
-                    <div className="li_top">
-                        <h2 className="s_tit1">로그인</h2>
-                        <div className="login-wrapper">
-                            <form onSubmit={(e) => { e.preventDefault(); submitClick(); }}>
-                                <div className="login-container">
-                                    <div className="input-container">
-                                        <label htmlFor="email">이메일</label>
-                                        <input
-                                            type="text"
-                                            id="email"
-                                            placeholder="이메일을 입력해주세요."
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            className="login-input"
-                                            onKeyPress={handleKeyPress}
-                                        />
-                                    </div>
-                                    <div className="input-container">
-                                        <label htmlFor="password">비밀번호</label>
-                                        <input
-                                            type="password"
-                                            id="password"
-                                            placeholder="비밀번호를 입력해주세요."
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            className="login-input"
-                                            onKeyPress={handleKeyPress}
-                                        />
-                                    </div>
-
-                                    {/* 간격을 위한 빈 div 추가 */}
-                                    <div style={{ height: '20px' }}></div>
-
-                                    <button
-                                        type="button"
-                                        className="login-button"
-                                        onClick={submitClick}
-                                    >
-                                        로그인
-                                    </button>
-                                    <div className="links-container">
-                                        <Link to={'/register'} className="register-link">회원가입</Link>
-                                        <Link to={'#'} className="reset-link">비밀번호 재설정</Link>
-                                    </div>
-                                </div>
-                            </form>
+        <div className="login-container">
+            <div className="login-outer-header">
+                <h2>로그인</h2>
+            </div>
+            <div className="login-form-box">
+                <div className="login-form-content">
+                    <form onSubmit={handleLogin}>
+                        {/* 이메일 입력 */}
+                        <div className="login-form-group">
+                            <label htmlFor="email">이메일</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                className="login-input"
+                                placeholder="이메일 주소를 입력해주세요"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                            />
                         </div>
-                    </div>
-                </article>
-            </section>
+
+                        {/* 비밀번호 입력 */}
+                        <div className="login-form-group">
+                            <label htmlFor="password">비밀번호</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                className="login-input"
+                                placeholder="비밀번호를 입력해주세요"
+                                value={form.password}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+
+                        {/* 로그인 버튼 */}
+                        <button
+                            type="submit"
+                            className="login-submit-btn"
+                        >
+                            로그인
+                        </button>
+
+                        {/* 아이디/비밀번호 변경 버튼 */}
+                        <div className="login-options">
+                            <button
+                                type="button"
+                                className="login-option-btn"
+                                onClick={() => navigate('/change-id')}
+                            >
+                                아이디 변경
+                            </button>
+                            <span className="login-divider">|</span>
+                            <button
+                                type="button"
+                                className="login-option-btn"
+                                onClick={() => navigate('/change-password')}
+                            >
+                                비밀번호 변경
+                            </button>
+                        </div>
+
+                        {/* 회원가입 버튼 */}
+                        <div className="login-register-link">
+                            <p>아직 회원이 아니신가요?</p>
+                            <button
+                                type="button"
+                                className="login-register-btn"
+                                onClick={handleRegister}
+                            >
+                                회원가입
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     );
-}
+};
 
 export default LoginForm;

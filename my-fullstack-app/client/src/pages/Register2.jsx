@@ -34,7 +34,7 @@ const Register2 = () => {
     const checkEmailDuplicate = async (e) => {
         e.preventDefault();
         if (!form.email.trim()) {
-            sweetalert('이메일 주소를 다시 확인해주세요.', '', 'info', '닫기');
+            sweetalert('이메일 주소를 다시 확인해주세요.', '', 'warning', '닫기');
             return;
         }
 
@@ -80,7 +80,7 @@ const Register2 = () => {
         const emailPattern = /@/;        // 이메일에 @ 포함 확인
 
         if (!form.email.trim()) {
-            sweetalert('이메일 주소를 다시 확인해주세요.', '', 'info', '닫기');
+            sweetalert('이메일 주소를 다시 확인해주세요.', '', 'warning', '닫기');
             return false;
         }
 
@@ -127,12 +127,12 @@ const Register2 = () => {
         }
 
         if (!form.organization.trim()) {
-            sweetalert('소속기관을 입력해주세요.', '', 'warning', '닫기');
+            sweetalert('소속 회사명을 입력해주세요.', '', 'warning', '닫기');
             return false;
         }
 
         if (!form.major.trim()) {
-            sweetalert('전공을 입력해주세요.', '', 'warning', '닫기');
+            sweetalert('회사의 업태를를 입력해주세요.', '', 'warning', '닫기');
             return false;
         }
 
@@ -171,8 +171,18 @@ const Register2 = () => {
             });
             const result = await response.json();
             if (result.affectedRows > 0) {
-                sweetalert('회원가입이 완료되었습니다.', '', 'success', '닫기');
-                navigate('/LoginForm');
+                // 사용자가 확인 버튼을 클릭해야 로그인 페이지로 이동
+                Swal.fire({
+                    title: '회원가입이 완료되었습니다.',
+                    icon: 'success',
+                    confirmButtonText: '로그인하기'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/LoginForm');
+                        // 페이지 상단으로 스크롤
+                        window.scrollTo(0, 0);
+                    }
+                });
             } else {
                 sweetalert('작업중 오류가 발생하였습니다.', '작업오류', 'warning', '닫기');
             }
@@ -278,7 +288,7 @@ const Register2 = () => {
                                 id="organization"
                                 name="organization"
                                 className="register2-input"
-                                placeholder="소속 기관명을 입력해주세요"
+                                placeholder="소속 회사명을 입력해주세요"
                                 value={form.organization}
                                 onChange={handleChange}
                             />
@@ -293,7 +303,7 @@ const Register2 = () => {
                                 id="major"
                                 name="major"
                                 className="register2-input"
-                                placeholder="전공을 입력해주세요"
+                                placeholder="회사의 업태를 입력해주세요"
                                 value={form.major}
                                 onChange={handleChange}
                             />
