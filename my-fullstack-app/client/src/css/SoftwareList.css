@@ -1,0 +1,80 @@
+/* 소프트웨어 목록 페이지 스타일 */
+
+/* 검색 영역 스타일 */
+.search-container {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.search-select {
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.search-input {
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 200px;
+    max-width: 100%;
+}
+
+.search-button {
+    padding: 8px 16px;
+    background-color: #4c86d3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.reset-button {
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.search-button:hover {
+    background-color: #3a6db0;
+}
+
+.reset-button:hover {
+    background-color: #5a6268;
+}
+
+/* 결과 없음 메시지 */
+.no-results {
+    text-align: center;
+    padding: 20px;
+}
+
+/* 기존 버튼 스타일 유지 */
+.sch_bt2 {
+    display: inline-block;
+}
+
+/* 반응형 지원 */
+@media screen and (max-width: 768px) {
+    .search-container {
+        flex-wrap: wrap;
+    }
+
+    .search-input {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .search-select {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

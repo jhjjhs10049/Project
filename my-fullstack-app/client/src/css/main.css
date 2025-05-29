@@ -1,0 +1,118 @@
+/* 메인비주얼 */
+.section1 {
+    height: 100vh;
+    /* 뷰포트 높이의 100%로 변경 */
+    background: url(../img/main/main.jpg) no-repeat center center;
+    /* center center로 변경 */
+    background-size: cover;
+    background-attachment: fixed;
+    /* 스크롤 시 배경 고정 효과 추가 */
+}
+
+.section1 b {
+    display: block;
+    padding: 250px 0 15px;
+    /* 150px에서 250px로 상단 패딩 증가 */
+    color: #fff;
+    text-align: center;
+    font-size: 4em;
+    /* 3em에서 4em으로 글씨 크기 증가 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* 텍스트 그림자 추가 */
+    /* 애니메이션 관련 스타일 추가 */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.section1 b.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section1>p {
+    color: #fff;
+    text-align: center;
+    padding-bottom: 75px;
+    padding-top: 60px;
+    /* 40px에서 60px로 상단 패딩 증가 */
+    font-size: 4em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    /* 애니메이션 관련 스타일 */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+    transition-delay: 0.3s;
+}
+
+.section1>p.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* >를 쓰면 바로밑에있는 코드만 적용이 된다. */
+
+.section1 .container {
+    width: 1140px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.section1 .container .quick {
+    float: left;
+    width: 270px;
+    height: 270px;
+    background-color: white;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.section1 .container .quick.last {
+    margin-right: 0px;
+}
+
+/* 마지막이기 때문에 마진을 20주면 공간이 넘어갈수 있기에 0으로 지정한다.*/
+
+.section1 .quick h3 {
+    margin: 55px 30px 30px 30px;
+    font-size: 28px;
+    background: url(../img/main/arrow.jpg) no-repeat right;
+    /* 주의: 앞에 background-repeat , background-position 등 주석처리할것 */
+}
+
+.section1 .quick p {
+    margin: 0 30px;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+/* 섹션2 */
+.section2 {
+    width: 1140px;
+    height: 300px;
+    margin: 80px auto;
+}
+
+.section2>div {
+    float: left;
+    width: 480px;
+    padding: 80px 0;
+    box-sizing: border-box;
+}
+
+.section2 h3 {
+    font-size: 28px;
+    padding-bottom: 18px;
+}
+
+.section2 .intro1 {
+    background: url(../img/main/icon01.jpg) no-repeat right center;
+    margin-left: 40px;
+    margin-right: 80px;
+}
+
+.section2 .intro2 {
+    background: url(../img/main/icon02.jpg) no-repeat right center;
+
+}

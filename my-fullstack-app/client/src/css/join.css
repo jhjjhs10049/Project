@@ -1,0 +1,140 @@
+@charset  "utf-8";
+
+#test{
+    /* background-color: ; */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -1100px;
+            bottom:0;
+            width: 800px;
+            height: 100px;
+            margin: auto;
+    /* background-image : url(../img/logo.png);
+    background-repeat : no-repeat;
+    background-size : 200px 40px; */
+}
+
+fieldset  {
+    border  :0 ;
+}
+table {
+    
+    border-collapse : collapse ; 
+    /* 테두리 사이의 간격없애기 */
+}
+caption  {
+    position : absolute ;
+    left :-9999em ;
+}
+
+#join_wrap  {
+    background-image: url(../img/main/block.jpg);
+    background-size: 80% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width : 100% ;
+    margin : 0  auto ;    
+}
+#join_wrap  .title  {
+    padding :50px  0px  20px ; /*위, 왼쪽/오른쪽, 아래*/
+    font-size :2em ;
+    font-weight : 700 ;
+    text-align : center;
+    
+}
+
+.money0logo{
+    color:rgb(170, 170, 255);
+    text-align : center;
+    font-size : 40px ;
+    /* font-family : ; */
+    line-height : px;
+}
+
+
+    
+
+.money0{
+    color:rgb(170, 170, 255);
+    text-align : center;
+    font-size : 40px ;
+    /* font-family : ; */
+    line-height : px;
+;
+}
+.money{
+    position:absolut;
+    width : 61px;
+    
+}
+
+.joinTable {
+    margin: 0 auto; /* 수평 가운데 정렬 */
+    text-align: left; /* 테이블 안의 텍스트는 왼쪽 정렬 (필요 시) */
+    border-collapse: collapse; /* 테이블 테두리 깔끔하게 */
+  }
+
+.joinTable  th , .joinTable  td {
+    padding :10px ;
+    box-sizing : border-box ;
+    border-bottom : 1px  solid  #facdf4 ;
+}
+.joinTable  th  {
+    width : 180px ;
+    background-color : rgb(170, 170, 255) ;
+}
+.joinTable  td  {
+    
+    width : 620px ;
+    background-color : rgb(168, 168, 172) 
+}
+.joinTable  .first  {
+    border-top : 3px  solid  #facdf4 ;
+}
+.joinTable  .textForm  {
+    width : 420px ;
+    height : 42px ;
+    border :1px  solid  #ddd ;
+    border-radius : 5px ;
+    padding :0px  10px ;
+    box-sizing : border-box ;
+}
+/* 중복확인 */
+.joinTable  .btn  {
+    width : 80px ;
+    height : 42px ;
+    background-color : rgb(170, 170, 255) ;
+    border :0 ;
+    border-radius : 5px ;
+    color :#000000 ;
+}
+/* 텍스트에리어 */
+.joinTable  .textarea  {
+    width : 420px ;
+    height : 80px ;
+    border :1px  solid  #ddd ;
+    border-radius : 5px ;
+    padding :10px ;
+    box-sizing : border-box ;
+    /* 테두리의 두께를 포함한 크기를 지정 */
+}
+/* 버튼 */
+#btn_area  {
+    text-align : center;
+    
+}
+#btn_area  button  {
+    border-radius : 10px ;
+    width : 200px ;
+    height : 72px ;
+    margin : 0  10px ;
+    border :0 ;
+    font-size : 20px ;
+
+}
+#btn_area  .btn_join  {
+    background-color :  rgb(170, 170, 255) ;
+    color :#000000 ;
+    
+}

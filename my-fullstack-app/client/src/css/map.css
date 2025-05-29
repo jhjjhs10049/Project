@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+.map-wrap {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    background-color: #000000;
+    /* 검정색으로 변경 */
+    width: 80%;
+    /* 가로 크기 80% */
+    margin: 0 auto;
+    /* 가로 중앙 정렬 */
+}
+
+/* 찾아오시는 길 페이지 스타일 */
+
+.map-content-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #000000;
+    /* 흰색에서 검정색으로 변경 */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    /* 그림자 색상 반전 */
+    color: #ffffff;
+    /* 글자 색상 흰색으로 설정 */
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.location-info {
+    padding: 20px 0;
+    color: #ffffff;
+    /* 글자 색상 흰색으로 설정 */
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #8363BF;
+    /* 색상을 보라색으로 변경 */
+    margin-bottom: 10px;
+    border-left: 4px solid #8363BF;
+    /* 테두리 색상도 변경 */
+    padding-left: 10px;
+}
+
+.info-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ffffff;
+    /* 글자 색상 흰색으로 변경 */
+    margin: 5px 0;
+}
+
+/* 제목 스타일 일관성 유지 및 위치 조정 */
+.s_tit1 {
+    text-align: center;
+    /* 중앙 정렬로 변경 */
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+    /* 너비 100%로 확장 */
+    margin: 0 auto 20px;
+    /* 상하 여백 유지 */
+    color: #ffffff;
+    /* 글자 색상 흰색으로 설정 */
+}
+
+.video-title {
+    margin-top: 40px;
+    text-align: center;
+    /* 중앙 정렬로 변경 */
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    /* 너비 100%로 확장 */
+    margin: 40px auto 20px;
+    /* 상하 여백 유지 */
+    color: #ffffff;
+    /* 글자 색상 흰색으로 설정 */
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    background-color: #000000;
+    /* 배경색 검정색으로 설정 */
+}
+
+/* 전체 페이지 배경색 설정 */
+body {
+    background-color: #000000;
+}
+
+/* 추가 배경색 설정 - 페이지 특정 요소들에 대해 */
+.sub_wrap {
+    background-color: #000000;
+}
+
+/* 반응형 설정 */
+@media screen and (max-width: 768px) {
+
+    .map-content-wrapper,
+    .video-container {
+        padding: 15px;
+    }
+
+    .map-container iframe,
+    .video-container iframe {
+        height: 300px;
+    }
+}

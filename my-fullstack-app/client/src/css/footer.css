@@ -1,0 +1,59 @@
+.footer {
+    background-color: #000000;
+    color: #ffffff !important;
+    /* 회색에서 흰색으로 변경 */
+    padding: 50px 0 30px 0;
+    /* 상단 패딩을 30px에서 50px로 늘림 */
+    text-align: center;
+}
+
+.company-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff !important;
+    /* 회색에서 흰색으로 변경 */
+}
+
+.footer-info {
+    color: #ffffff !important;
+    /* 회색에서 흰색으로 변경 */
+    /* 흰색에서 회색으로 변경 */
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #ffffff !important;
+    /* 회색에서 흰색으로 변경 */
+    /* 흰색에서 회색으로 변경 */
+    text-decoration: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer .copyright {
+    color: #ffffff !important;
+    /* 회색에서 흰색으로 변경 */
+    /* 흰색에서 회색으로 변경 */
+    margin: 15px 20px 0 0 !important;
+    font-size: 1.1em !important;
+    text-align: right !important;
+    padding-right: 0px !important;
+    transform: scale(0.8) translateX(-60px) !important;
+    /* 축소 효과 유지하면서 왼쪽으로 100px 이동 */
+    transform-origin: right !important;
+    display: block !important;
+    width: 100% !important;
+}

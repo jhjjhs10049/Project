@@ -1,0 +1,14 @@
+/* th::after 가상 요소 완전히 제거를 위한 파일 */
+th::after {
+    display: none !important;
+    content: "" !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    position: static !important;
+}

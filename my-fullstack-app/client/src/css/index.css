@@ -1,0 +1,8 @@
+/* 전역 배경색 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333333 !important;
+    /* 회색으로 변경하고 !important 추가 */
+    color: #ffffff;
+}

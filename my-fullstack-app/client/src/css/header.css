@@ -1,0 +1,176 @@
+.header {
+    background-color: black;
+    color: white;
+}
+
+.header-nav {
+    background-color: black;
+}
+
+.header-link {
+    color: white !important;
+}
+
+.header-link:hover {
+    color: #9270D7 !important;
+    /* mediumpurple에서 #9270D7로 변경 */
+    text-decoration: none !important;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.username-button {
+    color: white !important;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.username-button:hover {
+    color: #9270D7 !important;
+    /* mediumpurple에서 #9270D7로 변경 */
+    text-decoration: none !important;
+}
+
+/* SweetAlert 커스텀 스타일 개선 */
+.swal2-popup {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.swal2-title,
+.swal2-html-container {
+    color: #ffffff !important;
+}
+
+/* 성공 아이콘 수정 */
+.swal2-icon.swal2-success {
+    border-color: #28a745 !important;
+    color: #28a745 !important;
+}
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+    background-color: #28a745 !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: #28a745 !important;
+}
+
+/* 원형 라인 배경 투명화 */
+.swal2-icon.swal2-success [class^='swal2-success-circular-line'] {
+    background-color: transparent !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-fix {
+    background-color: transparent !important;
+}
+
+/* 정보 아이콘 수정 */
+.swal2-icon.swal2-info {
+    border-color: #17a2b8 !important;
+    color: #17a2b8 !important;
+}
+
+/* 경고 아이콘 수정 */
+.swal2-icon.swal2-warning {
+    border-color: #ffc107 !important;
+    color: #ffc107 !important;
+}
+
+/* 에러 아이콘 수정 */
+.swal2-icon.swal2-error {
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+}
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+    background-color: #dc3545 !important;
+}
+
+/* 질문 아이콘 수정 */
+.swal2-icon.swal2-question {
+    border-color: #6c757d !important;
+    color: #6c757d !important;
+}
+
+/* 버튼 스타일 */
+.swal2-styled.swal2-confirm {
+    background-color: #3085d6 !important;
+}
+
+/* 제품 보기 메뉴 카트 아이콘 스타일 */
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    top: -2px;
+    /* 위로 올리기 위해 음수 값 추가 */
+}
+
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.2s ease;
+}
+
+.cart-default {
+    opacity: 1;
+}
+
+.cart-hover {
+    opacity: 0;
+}
+
+.product-menu-item .header-link:hover .cart-default {
+    opacity: 0;
+}
+
+.product-menu-item .header-link:hover .cart-hover {
+    opacity: 1;
+}
+
+/* 프로필 아이콘 스타일 */
+.profile-icon-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    top: -2px;
+    /* 위로 올리기 위해 음수 값 추가 */
+}
+
+.profile-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.2s ease;
+}
+
+.profile-default {
+    opacity: 1;
+}
+
+.profile-hover {
+    opacity: 0;
+}
+
+.profile-menu-item .username-button:hover .profile-default {
+    opacity: 0;
+}
+
+.profile-menu-item .username-button:hover .profile-hover {
+    opacity: 1;
+}

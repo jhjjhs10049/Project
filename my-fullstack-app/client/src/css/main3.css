@@ -1,0 +1,31 @@
+.section1-main3 {
+    background-color: #000000;
+    /* 검은색 배경으로 변경 */
+    padding: 180px 0;
+    /* 상하 패딩 추가 증가 */
+    text-align: center;
+    margin-top: 0;
+    /* 상단 마진 제거 */
+    min-height: 800px;
+    /* 세로 길이 추가 증가 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    /* z-index 값을 더 낮게 조정 */
+}
+
+.section1-main3 h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    /* 텍스트 색상을 흰색으로 변경 */
+}
+
+.section1-main3 p {
+    font-size: 1.2rem;
+    color: #cccccc;
+    /* 텍스트 색상을 밝은 회색으로 변경 */
+}
