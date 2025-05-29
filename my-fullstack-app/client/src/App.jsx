@@ -20,7 +20,11 @@ import ClickExample from './pages/ClickExample';
 import ChangeExample1 from './pages/ChangeExample1';
 import ChangeExample2 from './pages/ChangeExample2';
 import OnClickExample from './pages/OnClickExample';
+// import Register from './pages/Register'; // 존재하지 않는 파일 임포트 제거
 import Register2 from './pages/Register2';
+import Shopping from './pages/Shopping';
+import Info from './pages/Info';
+import Center from './pages/Center'; // Center 컴포넌트 임포트 추가
 
 import './css/new.css';
 import './css/main.css';
@@ -28,8 +32,11 @@ import './css/main2.css';
 import './css/join.css';
 import './css/map.css';
 import './css/aside.css';
-import './css/footer.css'; // footer.css 임포트 추가
-import './css/Register2.css'; // register2.css 임포트 추가
+import './css/footer.css';
+import './css/Register2.css';
+import './css/shopping.css'; // Shopping CSS 임포트 추가
+import './css/info.css'; // Info CSS 임포트 추가
+import './css/center.css'; // Center CSS 임포트 추가
 
 function App() {
     return (
@@ -50,9 +57,14 @@ function App() {
                 <Route path="/SoftwareView_1" element={<SoftwareViewOne />} />
                 <Route path="/TestuseEffect" element={<TestuseEffect />} />
                 <Route path="/ClickExample" element={<ClickExample />} />
-                <Route path="/ChangeExample1" element={<ChangeExample1 />} />                <Route path="/ChangeExample2" element={<ChangeExample2 />} />
+                <Route path="/ChangeExample1" element={<ChangeExample1 />} />
+                <Route path="/ChangeExample2" element={<ChangeExample2 />} />
                 <Route path="/OnClickExample" element={<OnClickExample />} />
+                {/* <Route path="/Register" element={<Register />} /> */} {/* 존재하지 않는 컴포넌트 라우트 제거 */}
                 <Route path="/Register2" element={<Register2 />} />
+                <Route path="/Shopping" element={<Shopping />} /> {/* Shopping 라우트 추가 */}
+                <Route path="/Info" element={<Info />} /> {/* Info 라우트 추가 */}
+                <Route path="/Center" element={<Center />} /> {/* Center 라우트 추가 */}
             </Routes>
 
             <Footer name="HANJUN" />

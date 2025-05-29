@@ -1,0 +1,23 @@
+/* 회사소개 페이지 스타일 */
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.info-message {
+    text-align: center;
+}
+
+.info-message h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.info-message p {
+    color: white;
+    font-size: 18px;
+}

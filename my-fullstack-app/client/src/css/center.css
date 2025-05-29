@@ -1,0 +1,23 @@
+/* 홍보센터 페이지 스타일 */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.center-message {
+    text-align: center;
+}
+
+.center-message h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.center-message p {
+    color: white;
+    font-size: 18px;
+}
