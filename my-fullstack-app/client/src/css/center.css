@@ -21,3 +21,15 @@
     color: white;
     font-size: 18px;
 }
+
+/* 홍보영상 페이지 스타일 */
+
+/* 페이지 제목 스타일 */
+.center-title {
+    font-size: 32px;
+    /* 로그인창과 동일한 크기로 설정 */
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}

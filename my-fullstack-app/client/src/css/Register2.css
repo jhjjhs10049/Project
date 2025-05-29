@@ -20,7 +20,8 @@
 }
 
 .register2-outer-header h2 {
-    font-size: 28px;
+    font-size: 32px;
+    /* 글씨 크기 증가: 28px -> 32px */
     margin: 0;
     font-weight: 600;
     color: white;

@@ -1,0 +1,179 @@
+/* 마이페이지 스타일 */
+.mypage-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: white;
+    min-height: 100vh;
+    background-color: #000000;
+}
+
+.mypage-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mypage-header h1 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.mypage-header p {
+    color: #9270D7;
+    font-size: 16px;
+}
+
+.mypage-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mypage-card {
+    background-color: #a49fa5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mypage-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.mypage-card-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.mypage-edit-btn {
+    background-color: #9270D7;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.mypage-edit-btn:hover {
+    background-color: #8360c7;
+}
+
+.mypage-edit-btn.save-mode {
+    background-color: #28a745;
+}
+
+.mypage-edit-btn.save-mode:hover {
+    background-color: #218838;
+}
+
+.mypage-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    /* 라벨 색상을 검정색으로 변경 */
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    /* 배경색을 흰색으로 변경 */
+    color: #333;
+    /* 텍스트 색상을 어두운 색으로 변경 */
+    font-size: 16px;
+}
+
+.form-group input:disabled {
+    background-color: #f0f0f0;
+    /* 비활성화된 입력 필드의 배경색도 밝은 색으로 변경 */
+    color: #666;
+    /* 비활성화된 텍스트 색상 */
+    cursor: not-allowed;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+    font-size: 12px;
+}
+
+.mypage-danger-zone {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #dc3545;
+}
+
+.mypage-danger-zone h3 {
+    color: #dc3545;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.mypage-delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.mypage-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.mypage-danger-zone p {
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+}
+
+.mypage-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-size: 18px;
+    background-color: #000000;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .mypage-container {
+        padding: 20px 15px;
+    }
+
+    .mypage-header h1 {
+        font-size: 24px;
+    }
+
+    .mypage-card-header h2 {
+        font-size: 18px;
+    }
+}

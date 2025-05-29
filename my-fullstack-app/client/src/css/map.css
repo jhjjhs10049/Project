@@ -67,7 +67,8 @@
 .s_tit1 {
     text-align: center;
     /* 중앙 정렬로 변경 */
-    font-size: 24px;
+    font-size: 32px;
+    /* 24px에서 32px로 증가 */
     font-weight: bold;
     position: relative;
     width: 100%;
@@ -82,7 +83,8 @@
     margin-top: 40px;
     text-align: center;
     /* 중앙 정렬로 변경 */
-    font-size: 24px;
+    font-size: 32px;
+    /* 24px에서 32px로 증가 */
     font-weight: bold;
     width: 100%;
     /* 너비 100%로 확장 */
@@ -111,6 +113,18 @@ body {
 /* 추가 배경색 설정 - 페이지 특정 요소들에 대해 */
 .sub_wrap {
     background-color: #000000;
+}
+
+/* 오시는 길 페이지 스타일 */
+
+/* 페이지 제목 스타일 */
+.map-title {
+    font-size: 36px;
+    /* 32px에서 36px로 더 크게 증가 */
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
 }
 
 /* 반응형 설정 */

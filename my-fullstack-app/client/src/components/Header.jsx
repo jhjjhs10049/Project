@@ -4,7 +4,7 @@ import cookie from 'react-cookies';
 import Swal from 'sweetalert2';
 import '../css/header.css';
 
-const Header = () => {
+const Header = ({ toggleAside }) => {
     const [username, setUsername] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLogoHovered, setIsLogoHovered] = useState(false);    // 필요한 경우 나중에 사용할 수 있도록 주석 처리
@@ -116,7 +116,7 @@ const Header = () => {
                             </Link>
                         </li>
                         <li className="menulist"><Link to={'/Info'} className="header-link">회사 소개</Link></li>
-                        <li className="menulist"><Link to={'/Center'} className="header-link">홍보센터</Link></li> {/* 홍보센터 링크 수정 */}
+                        <li className="menulist"><Link to={'/Center'} className="header-link">홍보센터</Link></li>
                         <li className="menulist"><Link to={'/SoftwareList'} className="header-link">자료실</Link></li>
                         <li className="menulist"><Link to={'/Map'} className="header-link">오시는길</Link></li>
                         {!isLoggedIn && (
@@ -129,7 +129,7 @@ const Header = () => {
                                 <li className="menulist">
                                     <Link to="#" onClick={logout} className="header-link">로그아웃</Link>
                                 </li>                                <li className="menulist profile-menu-item">
-                                    <Link to="#" className="header-link">
+                                    <Link to="/MyPage" className="header-link">
                                         <span className="profile-icon-wrapper">
                                             <img
                                                 src={require("../img/layout/profile0.png")}
@@ -144,11 +144,11 @@ const Header = () => {
                                         </span>
                                         {username}님
                                     </Link>
-                                </li>
-                            </>
+                                </li>                            </>
                         )}
                     </ul>
                 </nav>
+                {/* 메뉴 아이콘 버튼 제거 - Aside 컴포넌트에서 처리 */}
             </div>
         </header>
     );

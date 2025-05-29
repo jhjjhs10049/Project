@@ -1,6 +1,8 @@
 .header {
     background-color: black;
     color: white;
+    position: relative;
+    /* 추가: 절대 위치 지정 요소의 기준점으로 설정 */
 }
 
 .header-nav {
@@ -189,4 +191,126 @@
 .logout-button:hover {
     color: #9270D7;
     text-decoration: none;
+}
+
+/* 메뉴 아이콘 스타일 - 주석 처리 (Aside에서 처리) */
+/* .menu-icon-wrapper {
+    position: fixed !important;
+    right: 20px !important;
+    top: 20px !important;
+    z-index: 1011 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: right 0.5s ease-in-out !important;
+}
+
+.menu-button {
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+.menu-icon {
+    width: 40px !important;
+    height: 40px !important;
+    display: block !important;
+} */
+
+/* 메뉴 아이콘 주변에 시각적 표시 추가 (선택사항) - 주석 처리 */
+/* .menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+} */
+
+/* 헤더 내부 요소들의 상대적 위치 조정 - 패딩 제거 */
+.h_nav {
+    position: relative !important;
+    padding-right: 20px !important;
+    /* 메뉴 아이콘이 없으므로 패딩 감소 */
+}
+
+/* Aside 스타일 개선 - 너비 조정 */
+.aside {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    /* 너비에 맞춰 초기 위치 조정 */
+    width: 320px;
+    /* 너비 감소 */
+    height: 100vh;
+    background-color: #000000;
+    color: white;
+    transition: right 0.5s ease-in-out;
+    z-index: 1010;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.aside.active {
+    right: 0;
+}
+
+.aside-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.aside-close:hover {
+    color: #9270D7;
+}
+
+/* 화면 오버레이 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+#asidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#asidenav ul li {
+    margin-bottom: 15px;
+}
+
+#asidenav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+#asidenav ul li a:hover {
+    color: #9270D7;
+}
+
+.photo-review {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
 }

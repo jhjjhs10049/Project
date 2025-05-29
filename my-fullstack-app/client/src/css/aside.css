@@ -14,32 +14,66 @@ aside,
     width: 220px;
     height: 100%;
     padding: 20px;
-    background: #dddddd;
-    border-right: 1px solid #ddd;
+    background: #a49fa5;
+    /* 배경색 변경 */
+    border-right: 1px solid #333;
+    /* 테두리 색상 변경 */
     box-sizing: border-box;
-    margin-top: px;
+    margin-top: 0px;
+    /* px 수정 */
 }
 
 aside #asidenav {
     margin-top: 20px;
+    background-color: transparent;
+    /* 배경색 투명으로 변경 */
+    padding: 0;
+    /* 패딩 제거 */
 }
 
 aside li {
-    background-color: white;
+    background-color: transparent;
+    margin-bottom: 10px;
+    /* 항목 간격 증가 */
+    list-style-type: none;
+    /* 리스트 마커 제거 */
 }
 
 aside #asidenav a {
     display: block;
-    height: 36px;
-    border: 1px solid #ddd;
+    height: 45px;
+    /* 높이 증가 */
+    border: none;
     text-align: center;
-    margin-bottom: 5px;
-    line-height: 36px;
+    /* 중앙 정렬 */
+    margin-bottom: 0;
+    line-height: 45px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background-color: #1a1a1a;
+    /* 유저 정보와 같은 배경색 */
+    border-radius: 8px;
+    /* 둥근 모서리 */
+    font-weight: 500;
+    /* 글자 두께 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* 그림자 효과 */
+}
+
+aside #asidenav li:last-child a {
+    border-bottom: none;
+    /* 마지막 항목 테두리 제거 */
 }
 
 aside #asidenav a:hover {
-    background: #333;
-    color: #fff;
+    background: #2a2a2a;
+    /* 호버 시 약간 밝은 배경색 */
+    color: #9270D7;
+    transform: translateY(-2px);
+    /* 호버 시 약간 위로 이동 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* 호버 시 그림자 강화 */
 }
 
 aside button {

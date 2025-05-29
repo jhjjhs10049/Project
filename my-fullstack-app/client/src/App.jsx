@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -25,6 +25,7 @@ import Register2 from './pages/Register2';
 import Shopping from './pages/Shopping';
 import Info from './pages/Info';
 import Center from './pages/Center'; // Center 컴포넌트 임포트 추가
+import MyPage from './pages/MyPage'; // MyPage 컴포넌트 임포트 추가
 
 import './css/new.css';
 import './css/main.css';
@@ -39,10 +40,18 @@ import './css/info.css'; // Info CSS 임포트 추가
 import './css/center.css'; // Center CSS 임포트 추가
 
 function App() {
+    // Aside 컴포넌트의 열기/닫기 상태 관리
+    const [isAsideOpen, setIsAsideOpen] = useState(false);
+
+    // Aside 상태 토글 함수
+    const toggleAside = () => {
+        setIsAsideOpen(!isAsideOpen);
+    };
+
     return (
         <Router>
-            <Header />
-            <Aside />
+            <Header toggleAside={toggleAside} />
+            <Aside isOpen={isAsideOpen} setIsOpen={setIsAsideOpen} />
 
             <Routes>
                 <Route path="/" element={<Main />} />
@@ -65,6 +74,7 @@ function App() {
                 <Route path="/Shopping" element={<Shopping />} /> {/* Shopping 라우트 추가 */}
                 <Route path="/Info" element={<Info />} /> {/* Info 라우트 추가 */}
                 <Route path="/Center" element={<Center />} /> {/* Center 라우트 추가 */}
+                <Route path="/MyPage" element={<MyPage />} /> {/* MyPage 라우트 추가 */}
             </Routes>
 
             <Footer name="HANJUN" />
