@@ -22,7 +22,8 @@
     align-items: center;
 }
 
-.username-button {
+/* 사용자 이름 버튼 스타일 제거 (더 이상 사용하지 않음) */
+/* .username-button {
     color: white !important;
     padding: 3px 10px;
     border-radius: 3px;
@@ -30,9 +31,8 @@
 
 .username-button:hover {
     color: #9270D7 !important;
-    /* mediumpurple에서 #9270D7로 변경 */
     text-decoration: none !important;
-}
+} */
 
 /* SweetAlert 커스텀 스타일 개선 */
 .swal2-popup {
@@ -167,10 +167,26 @@
     opacity: 0;
 }
 
-.profile-menu-item .username-button:hover .profile-default {
+.profile-menu-item .header-link:hover .profile-default {
     opacity: 0;
 }
 
-.profile-menu-item .username-button:hover .profile-hover {
+.profile-menu-item .header-link:hover .profile-hover {
     opacity: 1;
+}
+
+/* 로그아웃 링크 스타일 */
+.logout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    color: #9270D7;
+    text-decoration: none;
 }

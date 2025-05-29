@@ -5,10 +5,9 @@ import Swal from 'sweetalert2';
 import '../css/header.css';
 
 const Header = () => {
-    const [username, setUsername] = useState(''); const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isLogoHovered, setIsLogoHovered] = useState(false);
-
-    // 필요한 경우 나중에 사용할 수 있도록 주석 처리
+    const [username, setUsername] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLogoHovered, setIsLogoHovered] = useState(false);    // 필요한 경우 나중에 사용할 수 있도록 주석 처리
     // const showUserInfo = () => {
     //     setShowMyInfo(true);
     // };
@@ -23,24 +22,37 @@ const Header = () => {
     // };
 
     useEffect(() => {
-        const cookie_useremail = cookie.load('useremail');
-        const cookie_username = cookie.load('username');
-        const cookie_password = cookie.load('userpassword');
-        console.log("Header cookie_useremail=" + cookie_useremail);
-        console.log("Header cookie_username=" + cookie_username);
-        if (cookie_useremail && cookie_username) {
+        // 페이지가 로드될 때마다 쿠키 체크
+        const checkLoginStatus = () => {
+            const cookie_useremail = cookie.load('useremail');
+            const cookie_username = cookie.load('username');
+            const cookie_password = cookie.load('userpassword');
+            console.log("Header cookie_useremail=" + cookie_useremail);
+            console.log("Header cookie_username=" + cookie_username);
 
-            setUsername(cookie_username); // ← 이 줄이 반드시 있어야 username 표시됩니다. 
-            const expires = new Date();
-            expires.setMinutes(expires.getMinutes() + 60);
+            if (cookie_useremail && cookie_username) {
+                setUsername(cookie_username);
+                const expires = new Date();
+                expires.setMinutes(expires.getMinutes() + 60);
 
-            cookie.save('useremail', cookie_useremail, { path: '/', expires });
-            cookie.save('username', cookie_username, { path: '/', expires });
-            cookie.save('userpassword', cookie_password, { path: '/', expires });
-            setIsLoggedIn(true);
-        } else {
-            setIsLoggedIn(false);
-        }
+                cookie.save('useremail', cookie_useremail, { path: '/', expires });
+                cookie.save('username', cookie_username, { path: '/', expires });
+                cookie.save('userpassword', cookie_password, { path: '/', expires });
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+                setUsername('');
+            }
+        };
+
+        checkLoginStatus();
+
+        // 로컬 스토리지 변경 감지를 위한 이벤트 리스너 추가
+        window.addEventListener('storage', checkLoginStatus);
+
+        return () => {
+            window.removeEventListener('storage', checkLoginStatus);
+        };
     }, []);
 
     const logout = () => {
@@ -112,15 +124,12 @@ const Header = () => {
                                 <li className="menulist"><Link to={'/Register2'} className="header-link">회원가입</Link></li>
                                 <li className="menulist"><Link to={'/LoginForm'} className="header-link">로그인</Link></li>
                             </>
-                        )}
-                        {isLoggedIn && (
-                            <>                                <li className="menulist">
-                                <button onClick={logout} className="header-link logout-button">로그아웃</button>
-                            </li>
-                                <li className="menulist profile-menu-item">
-                                    <button
-                                        className="username-button"
-                                    >
+                        )}                        {isLoggedIn && (
+                            <>
+                                <li className="menulist">
+                                    <Link to="#" onClick={logout} className="header-link">로그아웃</Link>
+                                </li>                                <li className="menulist profile-menu-item">
+                                    <Link to="#" className="header-link">
                                         <span className="profile-icon-wrapper">
                                             <img
                                                 src={require("../img/layout/profile0.png")}
@@ -132,8 +141,9 @@ const Header = () => {
                                                 alt="profile icon hover"
                                                 className="profile-icon profile-hover"
                                             />
-                                        </span>                                        {username}님
-                                    </button>
+                                        </span>
+                                        {username}님
+                                    </Link>
                                 </li>
                             </>
                         )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import cookie from 'react-cookies';
 import '../css/LoginForm.css'; // 파일 이름의 대소문자 수정
 
 const LoginForm = () => {
@@ -52,30 +53,30 @@ const LoginForm = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        if (!validateForm()) return;
-
-        try {
-            const emailParts = form.email.split('@');
-            const email1 = emailParts[0] || '';
-            const email2 = emailParts.length > 1 ? emailParts[1] : '';
-
-            const response = await fetch('http://localhost:5000/api/login', {
+        if (!validateForm()) return; try {
+            const response = await fetch('http://localhost:5000/api/LoginForm?type=signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    is_Email1: email1,
-                    is_Email2: email2,
+                    is_Email: form.email,
                     is_Password: form.password
                 }),
-            });
-
-            const data = await response.json();
-
-            if (data.success) {
+            }); const data = await response.json(); if (data) {
                 // 로그인 성공 처리
-                localStorage.setItem('userInfo', JSON.stringify(data.user));
-                sweetalert('로그인 성공', '', 'success', '확인');
-                navigate('/'); // 메인 페이지로 이동
+                localStorage.setItem('userInfo', JSON.stringify(data));
+
+                // 쿠키에 사용자 정보 저장 (Header에서 사용)
+                const expires = new Date();
+                expires.setMinutes(expires.getMinutes() + 60); // 60분 동안 유효
+
+                cookie.save('useremail', data.useremail, { path: '/', expires });
+                cookie.save('username', data.username, { path: '/', expires });
+                cookie.save('userpassword', form.password, { path: '/', expires });
+
+                sweetalert('로그인 성공', '', 'success', '확인');                // 페이지 새로고침하여 Header 컴포넌트 업데이트
+                setTimeout(() => {
+                    window.location.href = '/'; // 메인 페이지로 이동하면서 전체 페이지 새로고침
+                }, 1000);
             } else {
                 // 로그인 실패 처리
                 sweetalert('로그인 실패', '이메일 또는 비밀번호가 일치하지 않습니다.', 'warning', '닫기');
