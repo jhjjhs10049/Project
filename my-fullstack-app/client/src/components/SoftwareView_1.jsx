@@ -55,9 +55,7 @@ function SoftwareView_1() {
             showConfirmButton,
             timer: 1000,
         });
-    };
-
-    const handleSubmit = async (type) => {
+    }; const handleSubmit = async (type) => {
         if (!validateForm()) return;
 
         const jsonData = {
@@ -66,14 +64,14 @@ function SoftwareView_1() {
         };
 
         try {
+            // eslint-disable-next-line no-unused-vars
             const response = await fetch(`http://localhost:5000/api/Swtool?type=${type}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(jsonData),
+                }, body: JSON.stringify(jsonData),
             });
-            const body = await response.text();
+            // const body = await response.text(); // 사용하지 않는 변수 주석 처리
             //   if (body === "succ") {
             if (type === 'save') {
                 sweetalertSucc('Software Tools 등록이 완료되었습니다.', false)

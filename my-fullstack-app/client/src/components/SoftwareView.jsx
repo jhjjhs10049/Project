@@ -14,13 +14,10 @@ const SoftwareView = () => {
     const [comments, setComments] = useState('');
 
     const [mode] = useState(swtcode === 'register' ? 'register' : 'modify');
-    const [fileName, setFileName] = useState('');
-    const [fileName2, setFileName2] = useState('');
-    const [manualName, setManualName] = useState('');
-
+    const [fileName, setFileName] = useState(''); const [fileName2, setFileName2] = useState(''); const [manualName, setManualName] = useState('');
     const [mainImagePreview, setMainImagePreview] = useState('');
     const [labelImagePreview, setLabelImagePreview] = useState('');
-    const [manualPath, setManualPath] = useState('');
+    // const [manualPath, setManualPath] = useState(''); // 사용하지 않는 변수
 
     const [mainFile, setMainFile] = useState(null);
     const [labelFile, setLabelFile] = useState(null);
@@ -49,17 +46,15 @@ const SoftwareView = () => {
                 setSwtFunction(data.swt_function || '');
                 setFileName(data.swt_big_imgpath || '');
                 setFileName2(data.swt_imagepath || '');
-                setManualName(data.swt_manual_path || '');
-
-                if (data.swt_image) {
+                setManualName(data.swt_manual_path || ''); if (data.swt_image) {
                     setMainImagePreview(`/image/${data.swt_image}`);
-                }
-                if (data.swt_label) {
+                } if (data.swt_label) {
                     setLabelImagePreview(`/image/${data.swt_label}`);
                 }
-                if (data.swt_manual) {
-                    setManualPath(`/swmanual/${data.swt_manual}`);
-                }
+                // 사용하지 않는 코드 주석 처리
+                // if (data.swt_manual) {
+                //     setManualPath(`/swmanual/${data.swt_manual}`);
+                // }
             } else {
                 alert('데이터를 불러올 수 없습니다.');
             }

@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cookie from 'react-cookies';
 import Swal from 'sweetalert2';
 import '../css/header.css';
 
 const Header = () => {
-    const [username, setUsername] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [showMyInfo, setShowMyInfo] = useState(false);
+    const [username, setUsername] = useState(''); const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLogoHovered, setIsLogoHovered] = useState(false);
-    const navigate = useNavigate();
 
-    const sweetalert = (title, contents, icon, confirmButtonText) => {
-        Swal.fire({
-            title,
-            text: contents,
-            icon,
-            confirmButtonText
-        });
-    };
+    // 필요한 경우 나중에 사용할 수 있도록 주석 처리
+    // const showUserInfo = () => {
+    //     setShowMyInfo(true);
+    // };
+
+    // const showAlert = (title, contents, icon, confirmButtonText) => {
+    //     Swal.fire({
+    //         title,
+    //         text: contents,
+    //         icon,
+    //         confirmButtonText
+    //     });
+    // };
 
     useEffect(() => {
         const cookie_useremail = cookie.load('useremail');
@@ -113,13 +115,11 @@ const Header = () => {
                             </>
                         )}
                         {isLoggedIn && (
-                            <>
-                                <li className="menulist">
-                                    <a href="#" onClick={(e) => { e.preventDefault(); logout(); }} className="header-link">로그아웃</a>
-                                </li>
+                            <>                                <li className="menulist">
+                                <button onClick={logout} className="header-link logout-button">로그아웃</button>
+                            </li>
                                 <li className="menulist profile-menu-item">
-                                    <a href="#"
-                                        onClick={(e) => { e.preventDefault(); }}
+                                    <button
                                         className="username-button"
                                     >
                                         <span className="profile-icon-wrapper">
@@ -133,9 +133,8 @@ const Header = () => {
                                                 alt="profile icon hover"
                                                 className="profile-icon profile-hover"
                                             />
-                                        </span>
-                                        {username}님
-                                    </a>
+                                        </span>                                        {username}님
+                                    </button>
                                 </li>
                             </>
                         )}
